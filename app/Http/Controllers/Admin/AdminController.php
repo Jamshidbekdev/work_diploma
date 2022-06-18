@@ -78,15 +78,15 @@ class AdminController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'img' => $image_name,
-                'password' => $request->password,
+                'password' => bcrypt($request->password),
+            ];
+        } else {
+            $data = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'img' => $image_name,
             ];
         }
-
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'img' => $image_name,
-        ];
         // dd($data);
         $user = User::find(auth()->user()->id);
 
@@ -114,19 +114,21 @@ class AdminController extends Controller
             $cnt += 3;
         }
 
-        $data = EducationCenter::get()->sortByDesc(function($item){
-            return ($item->grand + $item->contract) * 100 / $item->all;
+        $data = EducationCenter::get()->sortByDesc(function ($item) {
+            return (($item->grand + $item->contract) * 100) / $item->all;
         });
 
         $new_data = $data->pluck('id');
 
-        $data = PaginationHelper::paginate($data,7);
+        $data = PaginationHelper::paginate($data, 7);
 
-        $subject = EducationCenterAndSubject::get()->groupBy('subject_id',function ($item) {
-            return $item->subject_id;
-        })->sortByDesc(function($item){
-            return count($item);
-        });
+        $subject = EducationCenterAndSubject::get()
+            ->groupBy('subject_id', function ($item) {
+                return $item->subject_id;
+            })
+            ->sortByDesc(function ($item) {
+                return count($item);
+            });
 
         $subject = $subject->keys();
 
@@ -155,32 +157,35 @@ class AdminController extends Controller
             $cnt += 3;
         }
 
-        $data = EducationCenter::get()->sortByDesc(function($item){
-            return ($item->grand + $item->contract) * 100 / $item->all;
+        $data = EducationCenter::get()->sortByDesc(function ($item) {
+            return (($item->grand + $item->contract) * 100) / $item->all;
         });
 
         $new_data = $data->pluck('id');
 
-
-        $subject = EducationCenterAndSubject::get()->groupBy('subject_id',function ($item) {
-            return $item->subject_id;
-        })->sortByDesc(function($item){
-            return count($item);
-        });
+        $subject = EducationCenterAndSubject::get()
+            ->groupBy('subject_id', function ($item) {
+                return $item->subject_id;
+            })
+            ->sortByDesc(function ($item) {
+                return count($item);
+            });
 
         $subject = $subject->keys();
 
-        $data = EducationCenter::with('subjects')->whereHas('subjects',function(Builder $query) use($q){
-            return $query->whereIn('subject_id',$q);
-        })->get();
+        $data = EducationCenter::with('subjects')
+            ->whereHas('subjects', function (Builder $query) use ($q) {
+                return $query->whereIn('subject_id', $q);
+            })
+            ->get();
 
         // dd($data);
 
-        $data = PaginationHelper::paginate($data,7);
+        $data = PaginationHelper::paginate($data, 7);
         $data->appends($request->input());
 
         // dd($data);
 
-        return view('home', compact(['items', 'data','new_data', 'q','subject']));
+        return view('home', compact(['items', 'data', 'new_data', 'q', 'subject']));
     }
 }

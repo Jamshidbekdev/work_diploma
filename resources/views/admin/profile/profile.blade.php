@@ -36,11 +36,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Parol</label>
-                            <input class="form-control" name="password" type="text">
+                            <input class="form-control" name="password" type="password">
                         </div>
                         <div class="form-group">
                             <label for="">Parolni tasdiqlash</label>
-                            <input class="form-control" name="password_confirmation" type="text">
+                            <input class="form-control" name="password_confirmation" type="password">
                         </div>
                         <button type="submit" class="btn btn-success">Saqlash</button>
                     </div>

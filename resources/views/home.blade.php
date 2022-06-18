@@ -283,7 +283,6 @@
                                             <table class="table ">
                                                 <thead>
                                                     <tr>
-                                                        {{-- <th class="serial">#</th> --}}
                                                         <th class="avatar">Rasm</th>
                                                         <th>Nomi</th>
                                                         <th>Barcha o'qishga topshirganlar</th>
@@ -295,9 +294,7 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($data as $key => $item)
-                                                        {{-- @if ($key < 6) --}}
                                                         <tr>
-                                                            {{-- <td class="serial">{{ ++$key }}</td> --}}
                                                             <td class="avatar">
                                                                 <div class="round-img">
                                                                     @if (true)
@@ -308,8 +305,15 @@
                                                                     <a href="#"></a>
                                                                 </div>
                                                             </td>
-                                                            <td> <span
-                                                                    class="name">{{ $item->name }}</span>
+                                                            <td>
+                                                                <a href="#" class="show_item"
+                                                                    data-array='{{ $item->name . ',' . $item->address . ',' . $item->img . ',' . $item->phone . ',' . $item->all . ',' . $item->grand . ',' . $item->contract . ',' . $item->desc }}'
+                                                                    data-subjects = "{{ $item->subjects->pluck('name') }}">
+                                                                    <span
+                                                                        class="name">{{ $item->name }}</span>
+                                                                </a>
+                                                            </td>
+
                                                             <td><span>{{ $item->all }}</span></td>
                                                             <td class="text-success">
                                                                 <span>{{ $item->grand }}</span>
@@ -325,7 +329,6 @@
                                                                     class="">{{ $item->phone }}</span>
                                                             </td>
                                                         </tr>
-                                                        {{-- @endif --}}
                                                     @endforeach
                                                 </tbody>
                                             </table>
@@ -520,6 +523,7 @@
     </div>
     <!-- /#right-panel -->
     @include('admin.components.show-modal')
+    @include('admin.components.show_items-modal')
 
     <!-- Scripts -->
     <script src="{{ asset('dashboard/js/main.js') }}"></script>
@@ -695,7 +699,7 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
-            if($("#subjects").val().length == 0){
+            if ($("#subjects").val().length == 0) {
                 $('#button_id').attr('disabled', true);
             }
             $('#subjects').change(function() {
