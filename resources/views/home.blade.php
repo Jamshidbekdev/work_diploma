@@ -259,7 +259,8 @@
                                 <h4 class="box-title">O'quv markazlar </h4>
                                 <div class="row ">
                                     <div class="col-3 form-group">
-                                        <form id="form_id" action="{{ route('search') }}" style="" method="GET">
+                                        <form id="form_id" action="{{ route('search') }}" style=""
+                                            method="GET">
                                             <select multiple="multiple" name="q[]" class="select2 " id="subjects">
                                                 <option value="" class="">No Select</option>
                                                 @foreach (DB::table('subjects')->get() as $item)
@@ -307,10 +308,9 @@
                                                             </td>
                                                             <td>
                                                                 <a href="#" class="show_item"
-                                                                    data-array='{{ $item->name . ',' . $item->address . ',' . $item->img . ',' . $item->phone . ',' . $item->all . ',' . $item->grand . ',' . $item->contract . ',' . $item->desc }}'
-                                                                    data-subjects = "{{ $item->subjects->pluck('name') }}">
-                                                                    <span
-                                                                        class="name">{{ $item->name }}</span>
+                                                                    data-array='{{ $item->name . '^' . $item->address . '^' . $item->img . '^' . $item->phone . '^' . $item->all . '^' . $item->grand . '^' . $item->contract . '^' . $item->desc }}'
+                                                                    data-subjects="{{ $item->subjects->pluck('name') }}">
+                                                                    <span class="name">{{ $item->name }}</span>
                                                                 </a>
                                                             </td>
 
@@ -322,11 +322,10 @@
                                                                 <span>{{ $item->contract }}</span>
                                                             </td>
                                                             </td>
-                                                            <td> <span
-                                                                    class="product">{{ $item->address }}</span>
+                                                            <td> <span class="product">
+                                                                    {{ \Illuminate\Support\Str::words($item->address, 4, '...') }}</span>
                                                             </td>
-                                                            <td><span
-                                                                    class="">{{ $item->phone }}</span>
+                                                            <td><span class="">{{ $item->phone }}</span>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -387,7 +386,8 @@
                                                 <table class="table ">
                                                     <thead>
                                                         <tr>
-                                                            <th style="text-align:center;">Eng ko'p o'qitiladigan fanlar
+                                                            <th style="text-align:center;">Eng ko'p o'qitiladigan
+                                                                fanlar
                                                             </th>
                                                         </tr>
                                                     </thead>
@@ -395,8 +395,7 @@
                                                         @foreach ($subject as $key => $item)
                                                             @if ($key <= 6)
                                                                 <tr>
-                                                                    <td style="text-align:center;"
-                                                                        class="serial">
+                                                                    <td style="text-align:center;" class="serial">
                                                                         {{ DB::table('subjects')->find($item)->name }}
                                                                     </td>
                                                                     <td></td>
@@ -471,8 +470,8 @@
                                                     class="col-md-4 {{ $key != 0 ? 'clearfix d-none d-md-block' : '' }}">
                                                     <div class="card mb-2">
                                                         @if ($item->img)
-                                                            <img class="card-img-top"
-                                                                src="{{ $item->getImage() }}" alt="Card image cap">
+                                                            <img class="card-img-top" src="{{ $item->getImage() }}"
+                                                                alt="Card image cap">
                                                         @else
                                                             <img class="card-img-top"
                                                                 src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"

@@ -67,7 +67,7 @@
         var destroyModal = $('#showItemsModal');
         var id;
         $('body').on('click', '.show_item', function() {
-            var data = $(this).data('array').split(",");
+            var data = $(this).data('array').split("^");
             var subjects = $(this).data('subjects').toString().split(",");
             var name = data[0];
             var address = data[1];
