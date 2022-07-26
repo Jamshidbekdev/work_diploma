@@ -1,0 +1,85 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>60</y><w>210</w><h>190</h></coordinates><panel_attributes>Role
+--
+id:Int
+name:String
+--
+setName(String name)
+getName(String name)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>50</y><w>300</w><h>490</h></coordinates><panel_attributes>Houses
+--
+id:Int
+name:String
+thumbs_child:String
+thumbs:String
+rooms:Int
+bath_rooms:Int
+area:Int
+address:String
+garage:Int
+price:Int
+sell:Int
+--
+setName(String name)
+setThumbs_child(String thumbs_child)
+setThumbs(String thumbs)
+setRooms(Int rooms)
+setBath_rooms(Int bath_rooms)
+setArea(Int area)
+setAddress(String address)
+setGarage(String garage)
+setPrice(Int price)
+setSell(Int sell)
+getName(String name)
+getThumbs_child(String thumbs_child)
+getThumbs(String thumbs)
+getRooms(Int rooms)
+getBath_rooms(Int bath_rooms)
+getArea(Int area)
+getAddress(String address)
+getGarage(String garage)
+getPrice(Int price)
+getSell(Int sell)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>90</y><w>210</w><h>190</h></coordinates><panel_attributes>Feedback
+--
+id:Int
+name:String
+email:String
+subject:String
+message:Text
+--
+setName(String name)
+setEmail(String email)
+setSubject(String subject)
+setMessage(String message)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>330</y><w>210</w><h>220</h></coordinates><panel_attributes>Workers
+--
+id:Int
+full_name:String
+thumbs:String
+since:Int
+--
+setFull_name(String full_name)
+setThumbs(String thumbs)
+setSince(String since)
+getFull_name(String full_name)
+getThumbs(String thumbs)
+getSince(String since) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>340</y><w>210</w><h>210</h></coordinates><panel_attributes>Users
+--
+id:Int
+name:String
+password:String
+role_id:Int
+--
+setName(String name)
+setPassword(String password)
+setRole_id(Int role_id)
+getName(String name)
+getPassword(String password)
+getRole_id(Int role_id)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>550</y><w>210</w><h>190</h></coordinates><panel_attributes>Gallery
+--
+id:Int
+title:String
+thumbs:String
+--
+setTitle(String title)
+setThumbs(String thumbs)
+getTitle(String title)
+getThumbs(String thumbs)</panel_attributes><additional_attributes></additional_attributes></element></diagram>
