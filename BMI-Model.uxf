@@ -1,0 +1,343 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>0</x><y>156</y><w>210</w><h>280</h></coordinates><panel_attributes>Users
+
+--
+id : bigint(20) PK
+name : varchar(255)
+email : varchar(255)
+email_verified_at : timestamp
+password : varchar(255)
+remember_token : varchar(100)
+created_at : timestamp
+updated_at : timestamp
+img : varchar(255)
+--
+setName(String name)
+setEmail(String email)
+setImg(String image)
+getName()
+getEmail()
+getImg()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>490</x><y>166</y><w>210</w><h>440</h></coordinates><panel_attributes>Teachers
+
+--
+id : bigint(20) PK
+slug : varchar(255) AK
+name : varchar(255)
+time : varchar(255)
+number : varchar(255)
+email : varchar(255)
+text : text
+position : varchar(255)
+image : varchar(255)
+created_at : timestamp
+updated_at : timestamp
+
+--
+setName(String name)
+setTime(date time)
+setNumber(int number)
+setEmail(String email)
+setText(String text)
+setPosition(String position)
+setImage(String image)
+getName()
+getTime()
+getNumber()
+getEmail()
+getText()
+getPosition()
+getImage()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>446</y><w>210</w><h>270</h></coordinates><panel_attributes>Students
+
+--
+id : bigint(20) PK
+slug : varchar(255) AK
+name : varchar(255)
+title : varchar(255)
+text : text
+created_at : timestamp
+updated_at : timestamp
+
+--
+setName(String name)
+setTitle(String title)
+setText(String text)
+getName()
+getTitle()
+getText()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>386</y><w>210</w><h>190</h></coordinates><panel_attributes>Applications
+
+--
+id : bigint(20) PK
+ism : varchar(100)
+familiya : varchar(100)
+otasini_ism : varchar(100)
+email : varchar(100)
+viloyat : varchar(100)
+tuman : varchar(100)
+address : text
+sanasi : date
+m_telefoni : varchar(100)
+u_telefoni : varchar(100)
+kompyuter : text
+maqul_ish : text
+oquv_dargohi : text
+mutaxassisligi : text
+malakasi : text
+talim_davri : text
+ilmiy_unvon : text
+oylik : text
+ishlagan_joyi : text
+lavozimi : text
+faoliyat_davri : text
+diplom_fayl : varchar(200)
+diplom_ilova : varchar(200)
+til_bilish : varchar(200)
+surat_joylash : varchar(200)
+created_at : timestamp
+updated_at : timestamp</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>860</x><y>66</y><w>210</w><h>290</h></coordinates><panel_attributes>Contacts
+
+--
+id : bigint(20) PK
+name : varchar(255)
+email : varchar(255)
+subject : varchar(255)
+message : text
+created_at : timestamp
+updated_at : timestamp
+
+--
+setName(String name)
+setEmail(String email)
+setSubject(String email)
+setMessage(String message)
+getName()
+getEmail()
+getSubject()
+getMessage()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1080</x><y>66</y><w>210</w><h>490</h></coordinates><panel_attributes>Departments
+
+--
+id: bigInt(20) PK
+slug : varchar(255) AK
+name : varchar(255)
+time : datetime
+number : int(11)
+email : varchar(255)
+text : text
+position : varchar(255)
+direction : varchar(255)
+image : varchar(255)
+created_at : timestamp
+updated_at : timestamp
+
+--
+setDirection(String direction)
+setPosition(String position)
+setName(String name)
+setTime(date time)
+setNumber(int number)
+setEmail(String email)
+setText(String text)
+setImage(String image)
+getDirection()
+getPosition()
+getName()
+getTime()
+getNumber()
+getEmail()
+getText()
+getImage()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>250</x><y>156</y><w>210</w><h>530</h></coordinates><panel_attributes>Centers
+
+--
+id : bigint(20) PK
+slug : varchar(255) AK
+direction : varchar(255)
+title : varchar(255)
+position : varchar(255)
+name : varchar(255)
+time : varchar(255)
+number : varchar(255)
+email : varchar(255)
+text : text
+image : varchar(255)
+created_at : timestamp
+updated_at : timestamp
+
+--
+setDirection(String direction)
+setTitle(String title)
+setName(String name)
+setTime(date time)
+setNumber(int number)
+setEmail(String email)
+setText(String text)
+setPosition(String position)
+setImage(String image)
+getDirection()
+getTitle()
+getName()
+getTime()
+getNumber()
+getEmail()
+getText()
+getPosition()
+getImage()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>860</x><y>366</y><w>210</w><h>300</h></coordinates><panel_attributes>Graduates
+
+--
+id : bigint(20) PK
+name : varchar(255)
+body : text
+image : varchar(255)
+images : varchar(255)
+created_at : timestamp
+updated_at : timestamp
+
+--
+setName(String name)
+setBody(String body)
+setImage(String image)
+setImages(array images)
+getName()
+getBody()
+getImage()
+getImages()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2410</x><y>86</y><w>240</w><h>490</h></coordinates><panel_attributes>Posts
+--
+id : bigint(20) PK
+author_id : int(11)
+category_id : int(11)
+title : varchar(255)
+seo_title : varchar(255)
+excerpt : text
+body : text
+image : varchar(255)
+slug : varchar(255) AK
+meta_description : text
+meta_keywords : text
+status : enum('published','draft','pending')
+featured : tinyint(1)
+created_at : timestamp
+updated_at : timestamp
+
+--
+setTitle(String title)
+setSeo_title(String seo_title)
+setExcerpt(String expert)
+setBody(String body)
+setImage(String image)
+setStatus(String status)
+setFeatured(bool is_featured)
+getTitle()
+getSeo_title()
+getExcerpt()
+getBody()
+getImage()
+getStatus()
+getFeatured()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1534</x><y>66</y><w>210</w><h>400</h></coordinates><panel_attributes>Faculty Teachers
+
+--
+id : bigint(20) PK
+teacher_id : bigint(20) FK
+direction : varchar(255)
+name : varchar(255)
+time : varchar(255)
+number : varchar(255)
+email : varchar(255)
+image : varchar(255)
+created_at : timestamp
+updated_at : timestamp
+
+--
+setDirection(String direction)
+setName(String name)
+setTime(date time)
+setNumber(int number)
+setEmail(String email)
+setImage(String image)
+getDirection()
+getName()
+getTime()
+getNumber()
+getEmail()
+getImage()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1306</x><y>66</y><w>210</w><h>460</h></coordinates><panel_attributes>Faculty Descriptions
+
+--
+id : bigint(20) PK
+description_id : bigint(20) FK
+slug : varchar(255) AK
+direction : varchar(255)
+name : varchar(255)
+time : varchar(255)
+number : varchar(255)
+email : varchar(255)
+text : text
+image : varchar(255)
+created_a : timestamp
+updated_at : timestamp
+
+--
+setDirection(String direction)
+setName(String name)
+setTime(date time)
+setNumber(int number)
+setEmail(String email)
+setText(String text)
+setImage(String image)
+getDirection(String direction)
+getName()
+getTime()
+getNumber()
+getEmail()
+getText()
+getImage()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1946</x><y>86</y><w>210</w><h>490</h></coordinates><panel_attributes>Faculties
+
+--
+id : bigint(20) PK
+slug : varchar(255) AK
+name : varchar(255)
+description : varchar(255)
+content : text
+img : varchar(255)
+count_pc : int(11)
+count_laptop : int(11)
+count_server : int(11)
+count_board : int(11)
+created_at : timestamp
+updated_at : timestamp
+
+--
+setName(String name)
+setDescription(String desc)
+setContent(String content)
+setImg(String img)
+setCount_pc(int pc)
+setCount_laptop(int laptop)
+setCount_server (int server)
+setCount_board(int board)
+getName()
+getDescription()
+getContent()
+getImg()
+getCount_pc()
+getCount_laptop()
+getCount_server ()
+getCount_board()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2176</x><y>86</y><w>210</w><h>290</h></coordinates><panel_attributes>Faculty Specializations
+
+--
+id : bigint(20) PK
+name : varchar(255)
+email : varchar(255)
+subject : varchar(255)
+message : text
+created_at : timestamp
+updated_at : timestamp
+
+--
+setName(String name)
+setEmail(String email)
+setSubject(String subject)
+setMessage(String message)
+getName()
+getEmail()
+getSubject()
+getMessage()
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
